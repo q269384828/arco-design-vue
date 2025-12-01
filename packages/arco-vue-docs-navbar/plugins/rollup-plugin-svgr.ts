@@ -3,13 +3,15 @@ import type { Plugin } from 'vite';
 import svgr from '@svgr/core';
 import esbuild from 'esbuild';
 
-export default function svgrPlugin(): Plugin {
+export default function svgr(): Plugin {
   // TODO: options
   return {
     name: 'vite:svgr',
     // eslint-disable-next-line consistent-return
     async transform(code, id) {
       if (id.endsWith('.svg')) {
+        console.log(id);
+
         const svg = await fs.promises.readFile(id, 'utf8');
 
         const componentCode = await svgr(svg, {}, {}).then((res: string) => {
