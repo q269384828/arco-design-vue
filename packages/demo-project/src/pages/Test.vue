@@ -1,6 +1,10 @@
 <script setup lang="ts">
-import { Select } from '@arco-design/web-vue';
+import InputLabel from '../components/input-label';
+
 </script>
+
+
 <template>
-  <Select></Select>
+  <InputLabel>
+  </InputLabel>
 </template>
