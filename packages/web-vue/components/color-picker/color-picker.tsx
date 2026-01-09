@@ -12,6 +12,7 @@ import {
   rgbaToHex,
   rgbToHex,
 } from '../_utils/color';
+import { useFocusCleanup } from '../_utils/focus-cleanup';
 
 export default defineComponent({
   name: 'ColorPicker',
@@ -204,6 +205,8 @@ export default defineComponent({
     const onPopupVisibleChange = (visible: boolean) => {
       emit('popup-visible-change', visible, formatValue.value);
     };
+
+    useFocusCleanup();
 
     const renderInput = () => {
       return (

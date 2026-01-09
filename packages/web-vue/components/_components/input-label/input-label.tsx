@@ -7,6 +7,7 @@ import { useInput } from '../../_hooks/use-input';
 import { SelectViewValue } from '../select-view/interface';
 import { useFormItem } from '../../_hooks/use-form-item';
 import { useSize } from '../../_hooks/use-size';
+import { useFocusCleanup } from '../../_utils/focus-cleanup';
 
 export default defineComponent({
   name: 'InputLabel',
@@ -151,6 +152,8 @@ export default defineComponent({
         )}
       </span>
     );
+
+    useFocusCleanup();
 
     return {
       inputRef,

@@ -15,6 +15,7 @@ import type { RadioType } from './context';
 import { radioGroupKey } from './context';
 import { isNull, isUndefined } from '../_utils/is';
 import { useFormItem } from '../_hooks/use-form-item';
+import { useFocusCleanup } from '../_utils/focus-cleanup';
 
 export default defineComponent({
   name: 'Radio',
@@ -193,6 +194,8 @@ export default defineComponent({
         )}
       </>
     );
+
+    useFocusCleanup();
 
     return () => (
       <label class={cls.value}>

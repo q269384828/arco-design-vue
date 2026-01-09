@@ -64,6 +64,7 @@ import IconClose from '../../icon/icon-close';
 import IconHover from '../icon-hover.vue';
 import { useFormItem } from '../../_hooks/use-form-item';
 import { useSize } from '../../_hooks/use-size';
+import { useFocusCleanup } from '../../_utils/focus-cleanup';
 
 export default defineComponent({
   name: 'DateInputRange',
@@ -209,6 +210,8 @@ export default defineComponent({
     function onClear(e: Event) {
       emit('clear', e);
     }
+
+    useFocusCleanup();
 
     return {
       prefixCls,
