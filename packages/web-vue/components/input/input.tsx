@@ -1,6 +1,7 @@
 import type { PropType } from 'vue';
 import { computed, defineComponent, ref, nextTick, toRefs, watch } from 'vue';
 import { getPrefixCls } from '../_utils/global-config';
+import { useFocusCleanup } from '../_utils/focus-cleanup';
 import { INPUT_EVENTS, Size } from '../_utils/constant';
 import FeedbackIcon from '../_components/feedback-icon.vue';
 import { Enter } from '../_utils/keycode';
@@ -430,6 +431,8 @@ export default defineComponent({
       return attrs;
     });
 
+    useFocusCleanup();
+
     const renderInput = (hasOuter?: boolean) => (
       <span
         class={wrapperCls.value}
@@ -507,6 +510,8 @@ export default defineComponent({
       }
       return renderInput();
     };
+
+    useFocusCleanup();
 
     return {
       inputRef,

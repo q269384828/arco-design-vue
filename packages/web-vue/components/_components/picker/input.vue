@@ -43,6 +43,7 @@ import IconHover from '../icon-hover.vue';
 import { useFormItem } from '../../_hooks/use-form-item';
 import { useSize } from '../../_hooks/use-size';
 import FeedbackIcon from '../feedback-icon.vue';
+import { useFocusCleanup } from '../../_utils/focus-cleanup';
 
 export default defineComponent({
   name: 'DateInput',
@@ -119,6 +120,8 @@ export default defineComponent({
     });
 
     const refInput = ref<HTMLInputElement>();
+
+    useFocusCleanup();
 
     return {
       feedback,

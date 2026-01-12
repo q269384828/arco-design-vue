@@ -6,6 +6,7 @@ import IconPlus from '../icon/icon-plus';
 import Button from '../button';
 import IconUpload from '../icon/icon-upload';
 import { isFunction, isPromise } from '../_utils/is';
+import { useFocusCleanup } from '../_utils/focus-cleanup';
 
 export default defineComponent({
   name: 'UploadButton',
@@ -172,6 +173,8 @@ export default defineComponent({
         [`${prefixCls}-hide`]: props.hide,
       },
     ]);
+
+    useFocusCleanup();
 
     return () => (
       <span

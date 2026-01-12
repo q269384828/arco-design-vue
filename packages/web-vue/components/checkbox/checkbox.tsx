@@ -14,6 +14,7 @@ import IconCheck from './icon-check';
 import { isArray, isNull, isUndefined } from '../_utils/is';
 import { checkboxGroupKey } from './context';
 import { useFormItem } from '../_hooks/use-form-item';
+import { useFocusCleanup } from '../_utils/focus-cleanup';
 
 export default defineComponent({
   name: 'Checkbox',
@@ -205,6 +206,8 @@ export default defineComponent({
         checkboxRef.value.checked = checked;
       }
     });
+
+    useFocusCleanup();
 
     return () => (
       <label aria-disabled={mergedDisabled.value} class={cls.value}>

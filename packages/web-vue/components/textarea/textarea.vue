@@ -60,6 +60,7 @@ import {
   toRefs,
   watch,
 } from 'vue';
+import { useFocusCleanup } from '../_utils/focus-cleanup';
 import ResizeObserver from '../_components/resize-observer';
 import IconHover from '../_components/icon-hover.vue';
 import IconClose from '../icon/icon-close';
@@ -504,6 +505,8 @@ export default defineComponent({
       }
       computeIsScroll();
     });
+
+    useFocusCleanup();
 
     return {
       prefixCls,
